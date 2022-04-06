@@ -1,16 +1,12 @@
 function generateButtons() {
   let n = document.getElementById("numberOfButtons").value;
-  let body = document.createElement("body");
   let container = document.createElement("div");
   container.className = "container";
   let card = document.createElement("div");
   card.className = "card text-center";
   let card_body = document.createElement("div");
   card_body.className = "card-body";
-  let paragraph = document.createElement("p");
-  let text = document.createTextNode("Choose only one button from this list with " + n + " buttons.");
-  paragraph.appendChild(text);
-  card_body.appendChild(paragraph);
+  card_body.innerHTML = '<p>Choose only one button from this list with ' + n + ' buttons. </p>';
   let winningButton = generateWinningButton(n);
   for (let i = 0; i < n; ++i) {
     let button = document.createElement("button");
@@ -21,8 +17,7 @@ function generateButtons() {
   }
   card.appendChild(card_body);
   container.appendChild(card);
-  body.appendChild(container);
-  document.body.appendChild(body);
+  document.body.appendChild(container);
   return false;
 }
 
