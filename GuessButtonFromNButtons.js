@@ -1,10 +1,11 @@
+let counter = 0;
 function generateButtons() {
   let n = document.getElementById("numberOfButtons").value;
   let container = document.createElement("div");
   document.body.appendChild(container);
   container.className = "container";
   container.innerHTML = `<div class="card text-center" id="card">
-                          <div class="card-body" id="card_body">
+                          <div class="card-body" id="card_body ` + counter + `">
                             <p>Choose only one button from this list with ` + n + ` buttons. </p>
                           </div>
                         </div>`;
@@ -14,8 +15,9 @@ function generateButtons() {
     button.className = "btn btn-primary";
     button.innerHTML = 'Button ' + (i + 1);
     button.setAttribute("onclick", "checkWinningButton(" + (i + 1) + "," + winningButton + ")");
-    document.getElementById("card_body").appendChild(button);
+    document.getElementById("card_body " + counter).appendChild(button);
   }
+  ++counter;
   return false;
 }
 
